@@ -1,7 +1,6 @@
 const { Builder, By, until } = require("selenium-webdriver");
 const assert = require("assert");
 
-// Setting up Selenium WebDriver
 let driver;
 
 describe("Countdown Timer Test Suite", () => {
@@ -33,7 +32,7 @@ describe("Countdown Timer Test Suite", () => {
   it("should update the timer every second", async () => {
     const timerElement = await driver.findElement(By.id("timer"));
     const firstText = await timerElement.getText();
-    await driver.sleep(1000); // Wait for 1 second
+    await driver.sleep(1000); 
     const secondText = await timerElement.getText();
     assert.notStrictEqual(
       firstText,
@@ -67,7 +66,7 @@ describe("Countdown Timer Test Suite", () => {
   it("should stop updating the timer after showing EXPIRED!", async () => {
     const timerElement = await driver.findElement(By.id("timer"));
     if ((await timerElement.getText()) === "EXPIRED!") {
-      await driver.sleep(2000); // Wait 2 seconds to ensure no updates
+      await driver.sleep(2000); 
       const finalText = await timerElement.getText();
       assert.strictEqual(
         finalText,
